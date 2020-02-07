@@ -1,0 +1,36 @@
+---
+openapi: 3.0.1
+info:
+  title: API
+paths:
+  "/api/rates":
+    get:
+      summary: get_rates rate
+      tags:
+      - Rates
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: successful
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              photo_url:
+                type: string
+              status:
+                type: string
+            required:
+            - id
+            - name
+            - status
+  "/api/refresh":
+    post:
+      summary: update_rates rate
+      responses:
+        '200':
+          description: successful
