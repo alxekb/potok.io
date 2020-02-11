@@ -26,7 +26,7 @@ RSpec.describe 'Rates API', type: :request do
     end
   end
 
-  path '/api/refresh' do
+  path '/api/update' do
 
     post('update_rates rate') do
       response(200, 'successful') do
