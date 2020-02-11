@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get '/rates', to: 'rates#get_rates'
-    post '/refresh', to: 'rates#update_rates'
+    post '/update', to: 'rates#update_rates'
 
     match '*path', to: 'base#undefined_route', via: [:get, :post]
   end

@@ -1,0 +1,9 @@
+default: &default
+  tinkoff_url: 'https://www.tinkoff.ru/api/v1/currency_rates/'
+  category: 'DepositPayments'
+
+production:
+  <<: *default
+
+development:
+  <<: *default
