@@ -5,7 +5,10 @@ module Api
     end
 
     def update_rates
-      render json: External::TinkoffApi.call
+      data = External::TinkoffApi.call
+      RatesService.call(data)
+
+      render json: data
     end
   end
 end
