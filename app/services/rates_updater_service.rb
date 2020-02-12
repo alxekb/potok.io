@@ -1,4 +1,4 @@
-class RatesService < AbstractService
+class RatesUpdaterService < AbstractService
   attr_reader :rates
   def initialize(data)
     @data = data
@@ -27,10 +27,12 @@ class RatesService < AbstractService
   end
 
   def create_currencies
-    @data.map do |d|
-      create_currency(d.dig('fromCurrency'))
-      create_currency(d.dig('toCurrency'))
-      create_rate(d)
+    ActiveRecord::Base.transaction do
+      @data.map do |d|
+        create_currency(d.dig('fromCurrency'))
+        create_currency(d.dig('toCurrency'))
+        create_rate(d)
+      end
     end
 
     present_rates
