@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Currency.create str_code: '800', code: 800, name: 'EUR'
 Currency.create str_code: '840', code: 840, name: 'USD'
+
+Rate.create category: 'category',from_currency_id: 800, to_currency_id: 840, buy: 1.2, sell: 0.8
